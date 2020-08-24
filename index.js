@@ -26,6 +26,6 @@ function processData(server, client, data) {
   console.log(`---------------`);
 }
 
-server.create().listen(8000, function () {
-  console.log("listening your gps trackers on port", 8000);
+server.create().listen(5050, function () {
+  console.log("listening your gps trackers on port", 5050);
 });
