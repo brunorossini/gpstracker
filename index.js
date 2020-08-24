@@ -7,13 +7,13 @@ server.create = function () {
     var data = "";
     client.on("data", function (chunk) {
       data += chunk.toString();
-      console.log(data);
       // if (data.indexOf("\n") === -1) return;
       var messagesToProcess = data.split("\n");
       for (var i = 0; i < messagesToProcess.length - 1; i++) {
         processData(server, client, messagesToProcess[i]);
       }
       data = data.slice(data.lastIndexOf("\n") + 1);
+      console.log(data);
     });
   });
   server.trackers = new EventEmitter();
