@@ -8,7 +8,7 @@ server.create = function () {
     client.on("data", function (chunk) {
       data += chunk.toString();
       if (data.indexOf(";") === -1) return;
-      var messagesToProcess = data.split(";");
+      var messagesToProcess = data.split("\n");
       for (var i = 0; i < messagesToProcess.length - 1; i++) {
         processData(server, client, messagesToProcess[i]);
       }
@@ -20,8 +20,8 @@ server.create = function () {
 };
 
 function processData(server, client, data) {
-  console.log(`server: ${server}`);
-  console.log(`client: ${client}`);
+  console.log(`server: ${JSON.stringify(server)}`);
+  console.log(`client: ${JSON.stringify(client)}`);
   console.log(`data: ${data}`);
   console.log(`---------------`);
 }
